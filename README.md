@@ -7,45 +7,29 @@
 
 Sample Python application on Django with PostgreSQL database.
 
-<h3>Requirements</h3>
 
-____
-
-
-- django 4.0.1
-- Pillow 9.0.0
-- psycopg2-binary 2.9.3
-- django-prometheus 2.2.0
 
 <h3>Deployment</h3>
 
 ____
+Для развертывания приложения нужно:
+- Установить на компьютер: Git, Python3, Docker и Docker-Compouse.
+- Склонировать git репозиторий на компьютер.
 
+    $ git clone https://github.com/DorofeevAlexandr/devops-sample-django-app.git
 
+- Настройте переменные окружения в файле .env согласно примеру в файле .env.example.
 
-- install Python 3.8
-- install libs 
-```shell
-      pip3 install -r requirements.txt
-```
+- Собрать образы командой. 
 
-* Set environment export for variables:
-```yaml
-      DJANGO_DB_HOST: db
-      DJANGO_DB_NAME: app
-      DJANGO_DB_USER: worker
-      DJANGO_DB_PASS: worker
-      DJANGO_DB_PORT: "5432"
-      DJANGO_DEBUG: "False"
-```
+    $ sudo docker compose build
 
+- Запустить контейнеры командой.
 
-* migrate database:
-```shell
-python3 manage.py migrate
-```
+    $ sudo docker compose up -d
+ 
+- Лог выполнения приложения можно проверить командой.
 
-* start application:
-```shell
-python3 manage.py runserver 0.0.0.0:8000
-```
+    $  sudo docker-compose logs -f
+
+- Откройте приложение в браузере по адресу http://localhost:8000.

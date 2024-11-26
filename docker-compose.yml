@@ -16,8 +16,7 @@ services:
 
   web:
     build: .
-    #command: sh -c "/entrypoint.sh"
-    #command: sh -c "/entrypoint.sh && uwsgi --http 0.0.0.0:8000 --wsgi-file ./parrotsite/wsgi.py"
+    command: sh -c "/entrypoint.sh && uwsgi --http 0.0.0.0:8000 --wsgi-file ./parrotsite/wsgi.py"
     ports:
       - 8000:8000
     env_file:
